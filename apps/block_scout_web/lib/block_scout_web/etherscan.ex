@@ -2660,7 +2660,7 @@ defmodule BlockScoutWeb.Etherscan do
     <div class='tab-pane fade show active'>
     <div class="tile tile-muted p-1">
     <div class="m-2">
-    curl --location --request POST 'http://localhost:4000/api?module=contract&action=verify_vyper_contract' \
+    curl --location --request POST 'http://localhost:4100/api?module=contract&action=verify_vyper_contract' \
     --form 'contractSourceCode="SOURCE_CODE"' \
     --form 'name="Vyper_contract"' \
     --form 'addressHash="0xE60B1B8bD493569a3E945be50A6c89d29a560Fa1"' \

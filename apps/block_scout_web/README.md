@@ -22,7 +22,7 @@ To get BlockScout Web interface up and running locally:
 * Install Node.js dependencies with `$ cd assets && npm install && cd ..`
 * Start Phoenix with `$ mix phx.server` (This can be run from this directory or the project root: the project root is recommended.)
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+Now you can visit [`localhost:4100`](http://localhost:4100) from your browser.
 
 You can also run IEx (Interactive Elixir): `$ iex -S mix phx.server` (This can be run from this directory or the project root: the project root is recommended.)
 

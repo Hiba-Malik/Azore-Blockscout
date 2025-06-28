@@ -50,7 +50,7 @@ config :explorer, Explorer.Repo,
 
 # Configures API the database
 config :explorer, Explorer.Repo.Replica1,
-  url: ExplorerConfigHelper.get_api_db_url(),
+  url: System.get_env("DATABASE_URL"),
   pool_size: ConfigHelper.parse_integer_env_var("POOL_SIZE_API", 50),
   ssl: ExplorerConfigHelper.ssl_enabled?(),
   queue_target: queue_target

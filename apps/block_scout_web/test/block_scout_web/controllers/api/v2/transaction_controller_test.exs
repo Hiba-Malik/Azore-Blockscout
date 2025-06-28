@@ -1652,7 +1652,7 @@ defmodule BlockScoutWeb.API.V2.TransactionControllerTest do
 
       Application.put_env(:block_scout_web, BlockScoutWeb.MicroserviceInterfaces.TransactionInterpretation,
         enabled: true,
-        service_url: "http://localhost:4000"
+        service_url: "http://localhost:4100"
       )
 
       on_exit(fn ->

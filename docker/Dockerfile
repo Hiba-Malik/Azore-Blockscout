@@ -3,7 +3,7 @@ FROM hexpm/elixir:1.17.3-erlang-27.3.4-alpine-3.21.3 AS builder-deps
 WORKDIR /app
 
 RUN apk --no-cache --update add \
-    alpine-sdk gmp-dev automake libtool inotify-tools autoconf python3 file gcompat libstdc++ curl ca-certificates git make bash
+    alpine-sdk gmp-dev automake libtool inotify-tools autoconf python3 file gcompat libstdc++ curl ca-certificates git make bash nodejs npm
 
 # Cache elixir deps
 COPY mix.exs mix.lock ./
@@ -43,6 +43,14 @@ ENV API_GRAPHQL_MAX_COMPLEXITY=${API_GRAPHQL_MAX_COMPLEXITY}
 
 # Run backend compilation
 RUN mix compile
+
+# Build frontend assets and static digest
+RUN cd apps/block_scout_web && \
+    npm install && \
+    npm run deploy && \
+    cd ../.. && \
+    mix phx.digest
+
 
 RUN mkdir -p /opt/release && \
     mix release blockscout && \
