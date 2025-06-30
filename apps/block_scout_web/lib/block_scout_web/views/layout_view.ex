@@ -7,17 +7,19 @@ defmodule BlockScoutWeb.LayoutView do
 
   import BlockScoutWeb.APIDocsView, only: [blockscout_url: 1]
 
-  @default_other_networks [
-    %{
-      title: "Floripa",
-      url: System.get_env("TESTNET_DOMAIN"),
-      test_net?: true
-    },
-    %{
-      title: "Azore",
-      url: System.get_env("domain")
-    }
-  ]
+  defp default_other_networks do
+    [
+      %{
+        title: "Floripa",
+        url: System.get_env("TESTNET_DOMAIN"),
+        test_net?: true
+      },
+      %{
+        title: "Azore",
+        url: System.get_env("domain")
+      }
+    ]
+  end
 
   alias BlockScoutWeb.SocialMedia
 
@@ -121,7 +123,7 @@ defmodule BlockScoutWeb.LayoutView do
             []
         end
       else
-        @default_other_networks
+        default_other_networks()
       end
 
     get_other_networks
